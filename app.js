@@ -14,4 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let interval = 0;
 
   // Assign functions to keywords
+  function control(e) {
+    // We are removing the class of snake from ALL the squares
+    squares[currentIndex].classList.remove("snake");
+
+    // If we press the right arrow on our keyboard, the snake will go right one
+    if (e.keycode === 39) {
+      direction = 1;
+    } else if (e.keycode === 38) {
+      // If we press the up arrow, the snake will go back ten divs, appearing to go up
+      direction = -width;
+    } else if (e.keycode === 37) {
+      // If we press left, the snake will go left one div
+      direction = -1;
+    } else if (e.keycode === 40) {
+      // If we press down, the snake head will instantly appear in the div ten divs from where you are now
+      direction = +width;
+    }
+  }
 });
